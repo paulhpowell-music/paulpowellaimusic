@@ -86,15 +86,28 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="bg-[#001f3f] border-t border-amber-400/20 py-12">
-    <div class="max-w-7xl mx-auto px-6 text-center text-blue-200 text-sm">
-      © Paul Powell, Maryland • Made with ❤️ and AI • 
-      <a href="https://x.com/PaulHPowell13" target="_blank" class="hover:text-amber-400">@PaulHPowell13</a>
+  <footer class="bg-[#001f3f] border-t border-amber-400/20 py-16">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
+        <a href="https://www.youtube.com/channel/UCL6qIiDV4fHgi-LaqOkx57Q" 
+           target="_blank"
+           class="inline-flex items-center gap-3 bg-gradient-to-r from-amber-400 to-yellow-300 text-[#001f3f] px-8 py-4 rounded-3xl font-semibold hover:scale-105 transition-transform">
+          <i class="fab fa-youtube text-2xl"></i>
+          Follow Me on YouTube
+        </a>
+      </div>
+      <div class="text-blue-200 text-sm">
+        © Paul Powell, Maryland • Made with ❤️ and AI<br>
+        <span class="text-amber-400">Uplifting the world one song at a time</span>
+      </div>
+      <div class="mt-6 text-xs text-blue-300">
+        <a href="https://x.com/PaulHPowell13" target="_blank" class="hover:text-amber-400">@PaulHPowell13 on X</a>
+      </div>
     </div>
   </footer>
 
   <script>
-    // === MUSIC LIBRARY — EASY TO UPDATE LATER ===
+    // === MUSIC LIBRARY — EASY TO UPDATE ===
     const musicData = {
       "Tender Love Songs": {
         tracks: [
@@ -102,14 +115,14 @@
           { title: "The Silence Said", youtubeUrl: "https://youtu.be/q8rBjTi_jro" },
           { title: "Mysterious Eyes", youtubeUrl: "https://youtu.be/C511jnWRScQ" },
           { title: "Echoes of Eternal Love", youtubeUrl: "https://youtu.be/kBl9NMSpqWY" },
-          { title: "Tender Romantic Evening Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09hj0Vs_8_A4UeUpSC4nFoD8/videos" }
+          { title: "Tender Romantic Evening Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09hj0Vs_8_A4UeUpSC4nFoD8/videos", isPlaylist: true }
         ]
       },
       "Motivational Tunes": {
         tracks: [
           { title: "Rise Above the Noise", youtubeUrl: "https://youtu.be/o0qA4vIhsnY" },
           { title: "Let Them Underestimate", youtubeUrl: "https://youtu.be/4MpSMCmIAnU" },
-          { title: "Motivational Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iEGEt85Jvmd793mSdnva-G/videos" }
+          { title: "Motivational Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iEGEt85Jvmd793mSdnva-G/videos", isPlaylist: true }
         ]
       },
       "Party Tunes": {
@@ -119,7 +132,7 @@
           { title: "Ignite the Floor", youtubeUrl: "https://youtu.be/knoXr2da5T4" },
           { title: "Found My Sound", youtubeUrl: "https://youtu.be/1XNsJ0RNac0" },
           { title: "Fabulous Like That", youtubeUrl: "https://youtu.be/9kKwqvIseYE" },
-          { title: "Fun Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iOMII9IK-WtATKKrClAXGG/videos" }
+          { title: "Fun Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iOMII9IK-WtATKKrClAXGG/videos", isPlaylist: true }
         ]
       },
       "Dancing Love Songs": {
@@ -130,7 +143,7 @@
           { title: "Spark on the Floor", youtubeUrl: "https://youtu.be/_pCMf-G7hJE" },
           { title: "Brighter Than the Cosmos", youtubeUrl: "https://youtu.be/-J5m-J_R2lk" },
           { title: "Outta Nowhere Love", youtubeUrl: "https://youtu.be/emC6QhMNQ0g" },
-          { title: "Dancing Love Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09hj9ieqgzcDFmoeB_xbSUxg/videos" }
+          { title: "Dancing Love Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09hj9ieqgzcDFmoeB_xbSUxg/videos", isPlaylist: true }
         ]
       },
       "Worship Songs": {
@@ -138,7 +151,7 @@
           { title: "How Do You Know Me", youtubeUrl: "https://youtube.com/shorts/XSwosEhx_Tk" },
           { title: "Lead Me Straight", youtubeUrl: "https://youtu.be/-yMYyiMoaZY" },
           { title: "In the Beginning", youtubeUrl: "https://youtu.be/6Nz4g92A5HE" },
-          { title: "Worship Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09gct0sCK76VeCbpCkScFYML/videos" }
+          { title: "Worship Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09gct0sCK76VeCbpCkScFYML/videos", isPlaylist: true }
         ]
       },
       "Contemporary Christian Music": {
@@ -146,7 +159,7 @@
           { title: "Truth Will Set You Free", youtubeUrl: "https://youtu.be/OEvQp4dfLmc" },
           { title: "Live is Christ", youtubeUrl: "https://youtu.be/_nmuxZnoMYo" },
           { title: "Great is the Lord We Rise", youtubeUrl: "https://youtube.com/shorts/fUvMpt2r_9s" },
-          { title: "Christian Music Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09htQcDFN77fIH3OgpS1lM9S/videos" }
+          { title: "Christian Music Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09htQcDFN77fIH3OgpS1lM9S/videos", isPlaylist: true }
         ]
       },
       "Better World": {
@@ -154,7 +167,7 @@
           { title: "Born Unchained", youtubeUrl: "https://youtu.be/dg_4o3o7BKI" },
           { title: "Climb to the Stars", youtubeUrl: "https://youtu.be/E8GLcsf3FFs" },
           { title: "Fairness, Come Home", youtubeUrl: "https://youtu.be/qvkp2QR4gG4" },
-          { title: "A Better World Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iqa9H2SF8XxMqsOo_sugxw/videos" }
+          { title: "A Better World Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iqa9H2SF8XxMqsOo_sugxw/videos", isPlaylist: true }
         ]
       }
     };
@@ -179,17 +192,20 @@
       
       titleEl.textContent = genre;
       
-      tracksContainer.innerHTML = musicData[genre].tracks.map(track => `
-        <a href="${track.youtubeUrl}" target="_blank" class="flex items-center justify-between bg-[#001f3f] hover:bg-[#002b4f] rounded-2xl p-6 transition-colors group">
-          <div class="flex items-center gap-4">
-            <i class="fas fa-play-circle text-4xl text-amber-400 group-hover:scale-110 transition-transform"></i>
-            <div class="font-medium">${track.title}</div>
-          </div>
-          <div class="text-amber-400 text-sm flex items-center gap-2">
-            Listen on YouTube <i class="fas fa-external-link-alt"></i>
-          </div>
-        </a>
-      `).join('');
+      tracksContainer.innerHTML = musicData[genre].tracks.map(track => {
+        const isPlaylist = track.isPlaylist || track.title.toLowerCase().includes('playlist');
+        return `
+          <a href="${track.youtubeUrl}" target="_blank" class="flex items-center justify-between bg-[#001f3f] hover:bg-[#002b4f] rounded-2xl p-6 transition-colors group">
+            <div class="flex items-center gap-4">
+              <i class="fas ${isPlaylist ? 'fa-list' : 'fa-play-circle'} text-4xl text-amber-400 group-hover:scale-110 transition-transform"></i>
+              <div class="font-medium">${track.title}</div>
+            </div>
+            <div class="text-amber-400 text-sm flex items-center gap-2">
+              ${isPlaylist ? 'Open Playlist 📜' : 'Watch on YouTube'} <i class="fas fa-external-link-alt"></i>
+            </div>
+          </a>
+        `;
+      }).join('');
       
       modal.classList.remove('hidden');
       modal.classList.add('flex');
