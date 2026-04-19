@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paul Powell | AI Music for the Heart & Soul</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+    body { font-family: 'Inter', system_ui, sans-serif; }
+    .title-font { font-family: 'Playfair Display', sans-serif; }
+    .gold-text { color: #d4af77; text-shadow: 0 0 20px rgba(212, 175, 119, 0.3); }
+  </style>
+</head>
+<body class="bg-[#001f3f] text-white overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 w-full z-50 bg-[#001f3f]/90 backdrop-blur-lg border-b border-amber-400/20">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 bg-gradient-to-br from-amber-400 to-blue-300 rounded-2xl flex items-center justify-center text-2xl">🌟</div>
+        <h1 class="title-font text-3xl font-semibold tracking-tight gold-text">Paul Powell</h1>
+      </div>
+      <div class="flex items-center gap-8 text-sm font-medium">
+        <a onclick="navigateTo('home')" class="hover:text-amber-400 transition-colors cursor-pointer">HOME</a>
+        <a onclick="navigateTo('genres')" class="hover:text-amber-400 transition-colors cursor-pointer">GENRES</a>
+        <a href="https://x.com/PaulHPowell13" target="_blank" class="hover:text-amber-400 transition-colors"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="min-h-screen pt-24 flex items-center bg-gradient-to-br from-[#001f3f] via-[#002b4f] to-[#001f3f]">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <div class="space-y-8">
+        <div class="inline-flex items-center gap-2 bg-white/10 text-amber-400 text-sm font-medium px-5 py-2 rounded-full">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-400"></span>
+          </span>
+          UPLIFTING AI MUSIC
+        </div>
+        <h1 class="title-font text-6xl md:text-7xl font-semibold leading-none tracking-tighter gold-text">Music that lifts the heart.<br>Inspires change.<br>Encourages the soul.</h1>
+        <p class="text-xl text-blue-200 max-w-md">From Maryland — creating hopeful sounds with AI to help you feel good and make the world a little brighter.</p>
+        <button onclick="navigateTo('genres')" class="bg-gradient-to-r from-amber-400 to-yellow-300 text-[#001f3f] px-10 py-5 rounded-3xl font-semibold flex items-center gap-3 text-lg hover:scale-105 transition-transform">
+          <i class="fas fa-music"></i> EXPLORE THE MUSIC
+        </button>
+      </div>
+      <div class="relative">
+        <div class="aspect-square bg-gradient-to-br from-amber-400/10 to-blue-200/10 rounded-3xl flex items-center justify-center text-9xl border border-amber-400/20">🎶</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ME -->
+  <section class="py-24 bg-[#002b4f]">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold mb-12 text-center title-font gold-text">About Paul Powell</h2>
+      <div class="prose prose-invert max-w-none text-lg leading-relaxed text-blue-100">
+        <p>I'm Paul Powell from Maryland. I create music using AI because I genuinely love the sounds it helps me bring into the world — songs that encourage, uplift, and motivate people to feel good about themselves and make positive changes.</p>
+        <p class="italic">To me, AI-generated music is like brainstorming or rough drafts. It's a powerful starting point full of fresh ideas and beautiful possibilities, but I believe human musicians can take these creations to an even higher level. The best music happens when human heart and intention build upon what AI begins.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GENRES SECTION -->
+  <section id="genres" class="py-24 bg-[#001f3f]">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-semibold mb-4 text-center title-font gold-text">My Music Collections</h2>
+      <p class="text-center text-blue-200 mb-16">Click any genre to listen on YouTube</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="genre-cards"></div>
+    </div>
+  </section>
+
+  <!-- TRACK MODAL -->
+  <div id="track-modal" onclick="if(event.target===this) closeModal()" class="hidden fixed inset-0 bg-black/90 backdrop-blur-xl z-[100] flex items-center justify-center p-6">
+    <div onclick="event.stopImmediatePropagation()" class="max-w-2xl w-full bg-[#002b4f] rounded-3xl p-8 max-h-[85vh] overflow-y-auto">
+      <div class="flex justify-between items-center mb-8 sticky top-0 bg-[#002b4f] pb-4 z-10">
+        <h3 id="modal-genre-title" class="text-3xl font-semibold title-font gold-text"></h3>
+        <button onclick="closeModal()" class="text-4xl leading-none text-blue-200 hover:text-white">×</button>
+      </div>
+      <div id="modal-tracks" class="space-y-6"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#001f3f] border-t border-amber-400/20 py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center text-blue-200 text-sm">
+      © Paul Powell, Maryland • Made with ❤️ and AI • 
+      <a href="https://x.com/PaulHPowell13" target="_blank" class="hover:text-amber-400">@PaulHPowell13</a>
+    </div>
+  </footer>
+
+  <script>
+    // === MUSIC LIBRARY — EASY TO UPDATE LATER ===
+    const musicData = {
+      "Tender Love Songs": {
+        tracks: [
+          { title: "Custom Made For Me", youtubeUrl: "https://youtu.be/YBcDpX4fXzs" },
+          { title: "The Silence Said", youtubeUrl: "https://youtu.be/q8rBjTi_jro" },
+          { title: "Mysterious Eyes", youtubeUrl: "https://youtu.be/C511jnWRScQ" },
+          { title: "Echoes of Eternal Love", youtubeUrl: "https://youtu.be/kBl9NMSpqWY" },
+          { title: "Tender Romantic Evening Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09hj0Vs_8_A4UeUpSC4nFoD8/videos" }
+        ]
+      },
+      "Motivational Tunes": {
+        tracks: [
+          { title: "Rise Above the Noise", youtubeUrl: "https://youtu.be/o0qA4vIhsnY" },
+          { title: "Let Them Underestimate", youtubeUrl: "https://youtu.be/4MpSMCmIAnU" },
+          { title: "Motivational Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iEGEt85Jvmd793mSdnva-G/videos" }
+        ]
+      },
+      "Party Tunes": {
+        tracks: [
+          { title: "Heart Wide Open", youtubeUrl: "https://youtu.be/PBncb_Z8QYw" },
+          { title: "Move Your Feet", youtubeUrl: "https://youtu.be/l-7lg409tHo" },
+          { title: "Ignite the Floor", youtubeUrl: "https://youtu.be/knoXr2da5T4" },
+          { title: "Found My Sound", youtubeUrl: "https://youtu.be/1XNsJ0RNac0" },
+          { title: "Fabulous Like That", youtubeUrl: "https://youtu.be/9kKwqvIseYE" },
+          { title: "Fun Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iOMII9IK-WtATKKrClAXGG/videos" }
+        ]
+      },
+      "Dancing Love Songs": {
+        tracks: [
+          { title: "Get Real, I’m Reeling", youtubeUrl: "https://youtube.com/shorts/sxzSrjpCF7A" },
+          { title: "Last Call Love", youtubeUrl: "https://youtu.be/xqtM1hfhz50" },
+          { title: "Lunatic for You", youtubeUrl: "https://youtu.be/LHZsOL5-pyA" },
+          { title: "Spark on the Floor", youtubeUrl: "https://youtu.be/_pCMf-G7hJE" },
+          { title: "Brighter Than the Cosmos", youtubeUrl: "https://youtu.be/-J5m-J_R2lk" },
+          { title: "Outta Nowhere Love", youtubeUrl: "https://youtu.be/emC6QhMNQ0g" },
+          { title: "Dancing Love Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09hj9ieqgzcDFmoeB_xbSUxg/videos" }
+        ]
+      },
+      "Worship Songs": {
+        tracks: [
+          { title: "How Do You Know Me", youtubeUrl: "https://youtube.com/shorts/XSwosEhx_Tk" },
+          { title: "Lead Me Straight", youtubeUrl: "https://youtu.be/-yMYyiMoaZY" },
+          { title: "In the Beginning", youtubeUrl: "https://youtu.be/6Nz4g92A5HE" },
+          { title: "Worship Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09gct0sCK76VeCbpCkScFYML/videos" }
+        ]
+      },
+      "Contemporary Christian Music": {
+        tracks: [
+          { title: "Truth Will Set You Free", youtubeUrl: "https://youtu.be/OEvQp4dfLmc" },
+          { title: "Live is Christ", youtubeUrl: "https://youtu.be/_nmuxZnoMYo" },
+          { title: "Great is the Lord We Rise", youtubeUrl: "https://youtube.com/shorts/fUvMpt2r_9s" },
+          { title: "Christian Music Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09htQcDFN77fIH3OgpS1lM9S/videos" }
+        ]
+      },
+      "Better World": {
+        tracks: [
+          { title: "Born Unchained", youtubeUrl: "https://youtu.be/dg_4o3o7BKI" },
+          { title: "Climb to the Stars", youtubeUrl: "https://youtu.be/E8GLcsf3FFs" },
+          { title: "Fairness, Come Home", youtubeUrl: "https://youtu.be/qvkp2QR4gG4" },
+          { title: "A Better World Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iqa9H2SF8XxMqsOo_sugxw/videos" }
+        ]
+      }
+    };
+
+    function renderGenreCards() {
+      const container = document.getElementById('genre-cards');
+      container.innerHTML = Object.keys(musicData).map(genre => `
+        <div onclick="showGenre('${genre}')" class="group bg-[#002b4f] hover:bg-[#003b5f] border border-transparent hover:border-amber-400/30 rounded-3xl p-8 cursor-pointer transition-all">
+          <h3 class="text-3xl font-semibold title-font mb-4 group-hover:text-amber-400 transition-colors">${genre}</h3>
+          <div class="text-amber-400 text-sm flex items-center gap-2">
+            <i class="fas fa-music"></i>
+            ${musicData[genre].tracks.length} tracks / playlists
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function showGenre(genre) {
+      const modal = document.getElementById('track-modal');
+      const titleEl = document.getElementById('modal-genre-title');
+      const tracksContainer = document.getElementById('modal-tracks');
+      
+      titleEl.textContent = genre;
+      
+      tracksContainer.innerHTML = musicData[genre].tracks.map(track => `
+        <a href="${track.youtubeUrl}" target="_blank" class="flex items-center justify-between bg-[#001f3f] hover:bg-[#002b4f] rounded-2xl p-6 transition-colors group">
+          <div class="flex items-center gap-4">
+            <i class="fas fa-play-circle text-4xl text-amber-400 group-hover:scale-110 transition-transform"></i>
+            <div class="font-medium">${track.title}</div>
+          </div>
+          <div class="text-amber-400 text-sm flex items-center gap-2">
+            Listen on YouTube <i class="fas fa-external-link-alt"></i>
+          </div>
+        </a>
+      `).join('');
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('track-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function navigateTo(section) {
+      document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Initialize
+    renderGenreCards();
+  </script>
+</body>
+</html>
