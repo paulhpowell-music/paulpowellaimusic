@@ -1,9 +1,18 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Paul Powell | AI Music for the Heart & Soul</title>
+  
+  <!-- Google Analytics 4 -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-233WM4XM97"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-233WM4XM97');
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <style>
@@ -48,7 +57,9 @@
         </button>
       </div>
       <div class="relative">
-        <div class="aspect-square bg-gradient-to-br from-amber-400/10 to-blue-200/10 rounded-3xl flex items-center justify-center text-9xl border border-amber-400/20">🎶</div>
+        <img src="hero-image.jpg" 
+             alt="Paul Powell creating uplifting AI music with happy community" 
+             class="w-full aspect-square object-cover rounded-3xl border border-amber-400/20 shadow-2xl">
       </div>
     </div>
   </section>
@@ -69,7 +80,6 @@
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-4xl font-semibold mb-4 text-center title-font gold-text">My Music Collections</h2>
       <p class="text-center text-blue-200 mb-16">Click any genre to listen on YouTube</p>
-
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="genre-cards"></div>
     </div>
   </section>
@@ -107,69 +117,54 @@
   </footer>
 
   <script>
-    // === MUSIC LIBRARY — EASY TO UPDATE ===
     const musicData = {
-      "Tender Love Songs": {
-        tracks: [
-          { title: "Custom Made For Me", youtubeUrl: "https://youtu.be/YBcDpX4fXzs" },
-          { title: "The Silence Said", youtubeUrl: "https://youtu.be/q8rBjTi_jro" },
-          { title: "Mysterious Eyes", youtubeUrl: "https://youtu.be/C511jnWRScQ" },
-          { title: "Echoes of Eternal Love", youtubeUrl: "https://youtu.be/kBl9NMSpqWY" },
-          { title: "Tender Romantic Evening Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09hj0Vs_8_A4UeUpSC4nFoD8/videos", isPlaylist: true }
-        ]
-      },
-      "Motivational Tunes": {
-        tracks: [
-          { title: "Rise Above the Noise", youtubeUrl: "https://youtu.be/o0qA4vIhsnY" },
-          { title: "Let Them Underestimate", youtubeUrl: "https://youtu.be/4MpSMCmIAnU" },
-          { title: "Motivational Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iEGEt85Jvmd793mSdnva-G/videos", isPlaylist: true }
-        ]
-      },
-      "Party Tunes": {
-        tracks: [
-          { title: "Heart Wide Open", youtubeUrl: "https://youtu.be/PBncb_Z8QYw" },
-          { title: "Move Your Feet", youtubeUrl: "https://youtu.be/l-7lg409tHo" },
-          { title: "Ignite the Floor", youtubeUrl: "https://youtu.be/knoXr2da5T4" },
-          { title: "Found My Sound", youtubeUrl: "https://youtu.be/1XNsJ0RNac0" },
-          { title: "Fabulous Like That", youtubeUrl: "https://youtu.be/9kKwqvIseYE" },
-          { title: "Fun Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iOMII9IK-WtATKKrClAXGG/videos", isPlaylist: true }
-        ]
-      },
-      "Dancing Love Songs": {
-        tracks: [
-          { title: "Get Real, I’m Reeling", youtubeUrl: "https://youtube.com/shorts/sxzSrjpCF7A" },
-          { title: "Last Call Love", youtubeUrl: "https://youtu.be/xqtM1hfhz50" },
-          { title: "Lunatic for You", youtubeUrl: "https://youtu.be/LHZsOL5-pyA" },
-          { title: "Spark on the Floor", youtubeUrl: "https://youtu.be/_pCMf-G7hJE" },
-          { title: "Brighter Than the Cosmos", youtubeUrl: "https://youtu.be/-J5m-J_R2lk" },
-          { title: "Outta Nowhere Love", youtubeUrl: "https://youtu.be/emC6QhMNQ0g" },
-          { title: "Dancing Love Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09hj9ieqgzcDFmoeB_xbSUxg/videos", isPlaylist: true }
-        ]
-      },
-      "Worship Songs": {
-        tracks: [
-          { title: "How Do You Know Me", youtubeUrl: "https://youtube.com/shorts/XSwosEhx_Tk" },
-          { title: "Lead Me Straight", youtubeUrl: "https://youtu.be/-yMYyiMoaZY" },
-          { title: "In the Beginning", youtubeUrl: "https://youtu.be/6Nz4g92A5HE" },
-          { title: "Worship Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09gct0sCK76VeCbpCkScFYML/videos", isPlaylist: true }
-        ]
-      },
-      "Contemporary Christian Music": {
-        tracks: [
-          { title: "Truth Will Set You Free", youtubeUrl: "https://youtu.be/OEvQp4dfLmc" },
-          { title: "Live is Christ", youtubeUrl: "https://youtu.be/_nmuxZnoMYo" },
-          { title: "Great is the Lord We Rise", youtubeUrl: "https://youtube.com/shorts/fUvMpt2r_9s" },
-          { title: "Christian Music Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09htQcDFN77fIH3OgpS1lM9S/videos", isPlaylist: true }
-        ]
-      },
-      "Better World": {
-        tracks: [
-          { title: "Born Unchained", youtubeUrl: "https://youtu.be/dg_4o3o7BKI" },
-          { title: "Climb to the Stars", youtubeUrl: "https://youtu.be/E8GLcsf3FFs" },
-          { title: "Fairness, Come Home", youtubeUrl: "https://youtu.be/qvkp2QR4gG4" },
-          { title: "A Better World Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iqa9H2SF8XxMqsOo_sugxw/videos", isPlaylist: true }
-        ]
-      }
+      "Tender Love Songs": { tracks: [
+        { title: "Custom Made For Me", youtubeUrl: "https://youtu.be/YBcDpX4fXzs" },
+        { title: "The Silence Said", youtubeUrl: "https://youtu.be/q8rBjTi_jro" },
+        { title: "Mysterious Eyes", youtubeUrl: "https://youtu.be/C511jnWRScQ" },
+        { title: "Echoes of Eternal Love", youtubeUrl: "https://youtu.be/kBl9NMSpqWY" },
+        { title: "Tender Romantic Evening Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09hj0Vs_8_A4UeUpSC4nFoD8/videos", isPlaylist: true }
+      ]},
+      "Motivational Tunes": { tracks: [
+        { title: "Rise Above the Noise", youtubeUrl: "https://youtu.be/o0qA4vIhsnY" },
+        { title: "Let Them Underestimate", youtubeUrl: "https://youtu.be/4MpSMCmIAnU" },
+        { title: "Motivational Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iEGEt85Jvmd793mSdnva-G/videos", isPlaylist: true }
+      ]},
+      "Party Tunes": { tracks: [
+        { title: "Heart Wide Open", youtubeUrl: "https://youtu.be/PBncb_Z8QYw" },
+        { title: "Move Your Feet", youtubeUrl: "https://youtu.be/l-7lg409tHo" },
+        { title: "Ignite the Floor", youtubeUrl: "https://youtu.be/knoXr2da5T4" },
+        { title: "Found My Sound", youtubeUrl: "https://youtu.be/1XNsJ0RNac0" },
+        { title: "Fabulous Like That", youtubeUrl: "https://youtu.be/9kKwqvIseYE" },
+        { title: "Fun Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iOMII9IK-WtATKKrClAXGG/videos", isPlaylist: true }
+      ]},
+      "Dancing Love Songs": { tracks: [
+        { title: "Get Real, I’m Reeling", youtubeUrl: "https://youtube.com/shorts/sxzSrjpCF7A" },
+        { title: "Last Call Love", youtubeUrl: "https://youtu.be/xqtM1hfhz50" },
+        { title: "Lunatic for You", youtubeUrl: "https://youtu.be/LHZsOL5-pyA" },
+        { title: "Spark on the Floor", youtubeUrl: "https://youtu.be/_pCMf-G7hJE" },
+        { title: "Brighter Than the Cosmos", youtubeUrl: "https://youtu.be/-J5m-J_R2lk" },
+        { title: "Outta Nowhere Love", youtubeUrl: "https://youtu.be/emC6QhMNQ0g" },
+        { title: "Dancing Love Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09hj9ieqgzcDFmoeB_xbSUxg/videos", isPlaylist: true }
+      ]},
+      "Worship Songs": { tracks: [
+        { title: "How Do You Know Me", youtubeUrl: "https://youtube.com/shorts/XSwosEhx_Tk" },
+        { title: "Lead Me Straight", youtubeUrl: "https://youtu.be/-yMYyiMoaZY" },
+        { title: "In the Beginning", youtubeUrl: "https://youtu.be/6Nz4g92A5HE" },
+        { title: "Worship Songs Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09gct0sCK76VeCbpCkScFYML/videos", isPlaylist: true }
+      ]},
+      "Contemporary Christian Music": { tracks: [
+        { title: "Truth Will Set You Free", youtubeUrl: "https://youtu.be/OEvQp4dfLmc" },
+        { title: "Live is Christ", youtubeUrl: "https://youtu.be/_nmuxZnoMYo" },
+        { title: "Great is the Lord We Rise", youtubeUrl: "https://youtube.com/shorts/fUvMpt2r_9s" },
+        { title: "Christian Music Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09htQcDFN77fIH3OgpS1lM9S/videos", isPlaylist: true }
+      ]},
+      "Better World": { tracks: [
+        { title: "Born Unchained", youtubeUrl: "https://youtu.be/dg_4o3o7BKI" },
+        { title: "Climb to the Stars", youtubeUrl: "https://youtu.be/E8GLcsf3FFs" },
+        { title: "Fairness, Come Home", youtubeUrl: "https://youtu.be/qvkp2QR4gG4" },
+        { title: "A Better World Playlist", youtubeUrl: "https://studio.youtube.com/playlist/PLNJgSveWn09iqa9H2SF8XxMqsOo_sugxw/videos", isPlaylist: true }
+      ]}
     };
 
     function renderGenreCards() {
@@ -178,8 +173,7 @@
         <div onclick="showGenre('${genre}')" class="group bg-[#002b4f] hover:bg-[#003b5f] border border-transparent hover:border-amber-400/30 rounded-3xl p-8 cursor-pointer transition-all">
           <h3 class="text-3xl font-semibold title-font mb-4 group-hover:text-amber-400 transition-colors">${genre}</h3>
           <div class="text-amber-400 text-sm flex items-center gap-2">
-            <i class="fas fa-music"></i>
-            ${musicData[genre].tracks.length} tracks / playlists
+            <i class="fas fa-music"></i> ${musicData[genre].tracks.length} tracks / playlists
           </div>
         </div>
       `).join('');
@@ -221,7 +215,6 @@
       document.getElementById(section).scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Initialize
     renderGenreCards();
   </script>
 </body>
